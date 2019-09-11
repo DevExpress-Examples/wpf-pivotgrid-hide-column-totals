@@ -1,14 +1,12 @@
-﻿using System.Data;
-using System.Data.OleDb;
-using System.Windows;
+﻿using System.Windows;
 using DevExpress.Xpf.PivotGrid;
-using HowToBindToMDB.NwindDataSetTableAdapters;
 using System;
 
-namespace HowToBindToMDB {
+namespace UnboundFieldExample
+{
     public partial class MainWindow : Window {
-        NwindDataSet.OrderDetailsDataTable dataTable = new NwindDataSet.OrderDetailsDataTable();
-        OrderDetailsTableAdapter dataAdapter = new OrderDetailsTableAdapter();
+        DataSet1.OrderDetailsDataTable dataTable = new DataSet1.OrderDetailsDataTable();
+        DataSet1TableAdapters.OrderDetailsTableAdapter dataAdapter = new DataSet1TableAdapters.OrderDetailsTableAdapter();
 
         public MainWindow() {
             InitializeComponent();
@@ -27,6 +25,12 @@ namespace HowToBindToMDB {
                 decimal discount = Convert.ToDecimal(e.GetListSourceColumnValue("Discount"));
                 e.Value = unitPrice * qty * (1 - discount);
             }
+        }
+
+        private void PivotGridControl1_CustomCellValue(object sender, PivotCellValueEventArgs e)
+        {
+            if (e.DataField == fieldDiscount && e.RowValueType == FieldValueType.GrandTotal)
+                e.Value = String.Empty;
         }
     }
 }

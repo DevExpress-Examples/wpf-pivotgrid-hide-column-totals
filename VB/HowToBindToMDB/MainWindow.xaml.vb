@@ -1,34 +1,36 @@
-﻿Imports Microsoft.VisualBasic
-Imports System.Data
-Imports System.Data.OleDb
-Imports System.Windows
+﻿Imports System.Windows
 Imports DevExpress.Xpf.PivotGrid
-Imports HowToBindToMDB.NwindDataSetTableAdapters
 Imports System
 
-Namespace HowToBindToMDB
-    Partial Public Class MainWindow
-        Inherits Window
-        Private dataTable As New NwindDataSet.OrderDetailsDataTable()
-        Private dataAdapter As New OrderDetailsTableAdapter()
+Namespace UnboundFieldExample
+	Partial Public Class MainWindow
+		Inherits Window
 
-        Public Sub New()
-            InitializeComponent()
-            pivotGridControl1.DataSource = dataTable
-        End Sub
+		Private dataTable As New DataSet1.OrderDetailsDataTable()
+		Private dataAdapter As New DataSet1TableAdapters.OrderDetailsTableAdapter()
 
-        Private Sub Window_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
-            dataAdapter.Fill(dataTable)
-        End Sub
+		Public Sub New()
+			InitializeComponent()
+			pivotGridControl1.DataSource = dataTable
+		End Sub
 
-        Private Sub pivotGridControl1_CustomUnboundFieldData(ByVal sender As Object, _
-                                                             ByVal e As PivotCustomFieldDataEventArgs)
-            If e.Field Is fieldTotalSum Then
-                Dim unitPrice As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue("UnitPrice"))
-                Dim qty As Integer = Convert.ToInt32(e.GetListSourceColumnValue("Quantity"))
-                Dim discount As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue("Discount"))
-                e.Value = unitPrice * qty * (1 - discount)
-            End If
-        End Sub
-    End Class
+		Private Sub Window_Loaded(ByVal sender As Object, ByVal e As RoutedEventArgs)
+			dataAdapter.Fill(dataTable)
+		End Sub
+
+		Private Sub pivotGridControl1_CustomUnboundFieldData(ByVal sender As Object, ByVal e As PivotCustomFieldDataEventArgs)
+			If e.Field Is fieldTotalSum Then
+				Dim unitPrice As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue("UnitPrice"))
+				Dim qty As Integer = Convert.ToInt32(e.GetListSourceColumnValue("Quantity"))
+				Dim discount As Decimal = Convert.ToDecimal(e.GetListSourceColumnValue("Discount"))
+				e.Value = unitPrice * qty * (1 - discount)
+			End If
+		End Sub
+
+		Private Sub PivotGridControl1_CustomCellValue(ByVal sender As Object, ByVal e As PivotCellValueEventArgs)
+			If e.DataField Is fieldDiscount AndAlso e.RowValueType = FieldValueType.GrandTotal Then
+				e.Value = String.Empty
+			End If
+		End Sub
+	End Class
 End Namespace

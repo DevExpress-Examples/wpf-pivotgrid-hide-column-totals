@@ -1,20 +1,20 @@
-<Window xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" 
+﻿<Window xmlns:dxpg="http://schemas.devexpress.com/winfx/2008/xaml/pivotgrid" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        Title="MainWindow" Height="395" Width="585" 
-        x:Class="HowToBindToMDB.MainWindow"
+        Title="MainWindow" Height="600" Width="800" 
+        x:Class="UnboundFieldExample.MainWindow"
         Loaded="Window_Loaded">
     <Grid>
-        <dxpg:PivotGridControl CustomUnboundFieldData="pivotGridControl1_CustomUnboundFieldData"
-                               HorizontalAlignment="Left" Name="pivotGridControl1"
-                               VerticalAlignment="Top">
+        <dxpg:PivotGridControl CustomUnboundFieldData="pivotGridControl1_CustomUnboundFieldData" 
+                               CustomCellValue="PivotGridControl1_CustomCellValue" 
+                               Name="pivotGridControl1">
             <dxpg:PivotGridControl.Fields>
                 <dxpg:PivotGridField Name="fieldOrderID" FieldName="OrderID" Area="RowArea"/>
                 <dxpg:PivotGridField Name="fieldProductName" FieldName="ProductName" Area="RowArea"/>
                 <dxpg:PivotGridField Name="fieldUnitPrice" FieldName="UnitPrice" Area="DataArea"/>
                 <dxpg:PivotGridField Name="fieldQuantity" FieldName="Quantity" Area="DataArea"/>
-                <dxpg:PivotGridField Name="fieldDiscount" FieldName="Discount" Area="DataArea"
-                                     CellFormat="p"/>
+                <dxpg:PivotGridField Name="fieldDiscount" FieldName="Discount" Area="DataArea" 
+                                      CellFormat="p"/>
                 <dxpg:PivotGridField Name="fieldTotalSum" UnboundType="Decimal" Area="DataArea"
                                      Caption="Total Sum"/>
             </dxpg:PivotGridControl.Fields>
