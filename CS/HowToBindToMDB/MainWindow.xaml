@@ -5,18 +5,40 @@
         x:Class="UnboundFieldExample.MainWindow"
         Loaded="Window_Loaded">
     <Grid>
-        <dxpg:PivotGridControl CustomUnboundFieldData="pivotGridControl1_CustomUnboundFieldData" 
+        <dxpg:PivotGridControl DataProcessingEngine="Optimized" 
                                CustomCellValue="PivotGridControl1_CustomCellValue" 
                                Name="pivotGridControl1">
             <dxpg:PivotGridControl.Fields>
-                <dxpg:PivotGridField Name="fieldOrderID" FieldName="OrderID" Area="RowArea"/>
-                <dxpg:PivotGridField Name="fieldProductName" FieldName="ProductName" Area="RowArea"/>
-                <dxpg:PivotGridField Name="fieldUnitPrice" FieldName="UnitPrice" Area="DataArea"/>
-                <dxpg:PivotGridField Name="fieldQuantity" FieldName="Quantity" Area="DataArea"/>
-                <dxpg:PivotGridField Name="fieldDiscount" FieldName="Discount" Area="DataArea" 
-                                     CellFormat="p"/>
-                <dxpg:PivotGridField Name="fieldTotalSum" UnboundType="Decimal" Area="DataArea"
-                                     Caption="Total Sum"/>
+                <dxpg:PivotGridField Name="fieldOrderID"  Area="RowArea">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="OrderID"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Name="fieldProductName"  Area="RowArea">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="ProductName"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Name="fieldUnitPrice"  Area="DataArea" CellFormat="c2">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="UnitPrice" />
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Name="fieldQuantity" Area="DataArea">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Quantity"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Name="fieldDiscount" Area="DataArea" CellFormat="p">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:DataSourceColumnBinding ColumnName="Discount"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
+                <dxpg:PivotGridField Name="fieldTotalSum" Area="DataArea" Caption="Total Sum" CellFormat="c2">
+                    <dxpg:PivotGridField.DataBinding>
+                        <dxpg:ExpressionDataBinding Expression="[fieldUnitPrice]*[fieldQuantity]*(1-[fieldDiscount])"/>
+                    </dxpg:PivotGridField.DataBinding>
+                </dxpg:PivotGridField>
             </dxpg:PivotGridControl.Fields>
         </dxpg:PivotGridControl>
     </Grid>
