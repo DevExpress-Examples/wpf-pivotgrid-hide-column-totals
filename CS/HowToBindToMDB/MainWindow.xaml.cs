@@ -18,8 +18,9 @@ namespace UnboundFieldExample
         }
         private void PivotGridControl1_CustomCellValue(object sender, PivotCellValueEventArgs e)
         {
-            if (e.DataField == fieldDiscount && e.RowValueType == FieldValueType.GrandTotal)
-                e.Value = String.Empty;
+            if (e.ColumnValueType == FieldValueType.GrandTotal
+                   && e.DataField == fieldDiscount)
+                e.Value = null;
         }
     }
 }
