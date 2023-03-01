@@ -5,7 +5,7 @@
 
 # Pivot Grid for WPF - Hide Column Totals
 
-This example demonstrates how to handle the [CustomCellValue](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridControl.CustomCellValue?p=netframework) event to hide the _Discount_ field column grand totals. 
+This example demonstrates how to handle the [CustomCellValue](https://docs.devexpress.com/WPF/DevExpress.Xpf.PivotGrid.PivotGridControl.CustomCellValue?p=netframework) event to hide the _Discount_ field grand totals. 
 
 ![Piovt Grid](./images/pivotgrid.png)
 
