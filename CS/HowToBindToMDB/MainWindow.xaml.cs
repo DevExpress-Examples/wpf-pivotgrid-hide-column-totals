@@ -15,8 +15,7 @@ namespace UnboundFieldExample {
         private void Window_Loaded(object sender, RoutedEventArgs e) {
             dataAdapter.Fill(dataTable);
         }
-        private void PivotGridControl1_CustomCellValue(object sender, PivotCellValueEventArgs e)
-        {
+        private void PivotGridControl1_CustomCellValue(object sender, PivotCellValueEventArgs e) {
             if (e.ColumnValueType == FieldValueType.GrandTotal
                    && e.DataField == fieldDiscount)
                 e.Value = null;
