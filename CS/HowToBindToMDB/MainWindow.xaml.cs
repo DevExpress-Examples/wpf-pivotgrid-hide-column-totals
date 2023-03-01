@@ -2,8 +2,7 @@
 using DevExpress.Xpf.PivotGrid;
 using System;
 
-namespace UnboundFieldExample
-{
+namespace UnboundFieldExample {
     public partial class MainWindow : Window {
         DataSet1.OrderDetailsDataTable dataTable = new DataSet1.OrderDetailsDataTable();
         DataSet1TableAdapters.OrderDetailsTableAdapter dataAdapter = new DataSet1TableAdapters.OrderDetailsTableAdapter();
