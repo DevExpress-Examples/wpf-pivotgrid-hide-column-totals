@@ -12,11 +12,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="DevExpress.Images" Version="24.2.1-alpha-24256" />
-    <PackageReference Include="DevExpress.Wpf.Core" Version="24.2.1-alpha-24256" />
-    <PackageReference Include="devexpress.wpf.pivotgrid" Version="24.2.1-alpha-24256" />
-    <PackageReference Include="DevExpress.Wpf.Themes.Win11Light" Version="24.2.1-alpha-24256" />
-    <PackageReference Include="DevExpress.Wpf.ThemesLW" Version="24.2.1-alpha-24256" />
+    <PackageReference Include="DevExpress.Images" Version="24.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.Core" Version="24.2.*-*" />
+    <PackageReference Include="devexpress.wpf.pivotgrid" Version="24.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.Themes.Win11Light" Version="24.2.*-*" />
+    <PackageReference Include="DevExpress.Wpf.ThemesLW" Version="24.2.*-*" />
     <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.8" />
   </ItemGroup>
 </Project>
