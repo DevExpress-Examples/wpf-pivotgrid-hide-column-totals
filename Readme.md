@@ -22,7 +22,7 @@ This example demonstrates how to handle the [CustomCellValue](https://docs.devex
 - [Grand Totals](https://docs.devexpress.com/WPF/8001/controls-and-libraries/pivot-grid/ui-elements/grand-totals?p=netframework)
 
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivotgrid-hide-column-totals&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=wpf-pivotgrid-hide-column-totals&~~~was_helpful=no)
 
